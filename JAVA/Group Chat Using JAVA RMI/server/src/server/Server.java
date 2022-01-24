@@ -1,0 +1,203 @@
+package server;
+
+
+import java.rmi.*;
+import java.rmi.server.*;
+import server_board.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import client_board.*;
+import java.net.*;
+import javax.swing.JOptionPane;
+
+/**
+ * implementation of the remote interface methods
+ *
+ * clients into is held into a hash set(unique nicknames)
+ */
+public class Server extends UnicastRemoteObject implements ServerBoard {
+    public static ServerUI ui = null;
+    HashSet hashset = new HashSet(20);
+
+    /**
+     * Client info is a class to hold a client info like: his nick name
+     * his address (server, client name) and a reference to the remote stub
+     * to enable using it without looknig for it everytime
+     *
+     * this class is used in the hash set so we override the equals method which
+     * reutns true when the objects have the same nickname only
+     *
+     * also the hashCode is overriden to return the nickName hashCode
+     */
+    class ClientInfo {
+        String nickName = null;
+        String clientAddress = null;
+        ClientBoard lookup = null;
+        ClientInfo(String nick, String addr, ClientBoard client) {
+            nickName = nick;
+            clientAddress = addr;
+            lookup = client;
+        }
+
+        /**
+         * equality through nickname only
+         */
+        public boolean equals(Object o) {
+            ClientInfo info = (ClientInfo) o;
+            return info.nickName.equals(nickName);
+        }
+
+        /**
+         * we return the nickName hashcode
+         * @return int
+         */
+        public int hashCode() {
+            return nickName.hashCode();
+        }
+    }
+
+
+    public Server() throws RemoteException {
+        super();
+    }
+
+    /**
+     * initialize RMI, set Security manager and bind the name to RMI Reg
+     * @param ui ServerUI
+     */
+    public void createServer() {
+        if (System.getSecurityManager() == null) {
+            System.setSecurityManager(new RMISecurityManager());
+        }
+        String name = "Server";
+        try {
+            ServerBoard server = new Server();
+            Naming.rebind(name, server);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"can't bind the name, check RMI naming service");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * connect by passing a client address and his nickname
+     * nicknames are unique
+     *
+     * we notify everyone with this connection
+     * when connected we get look the name up into the RMI registry so we get it once
+     * and use it many
+     *
+     * @param clientAddr String
+     * @param nickName String
+     * @return Object
+     * @throws RemoteException
+     */
+    public Object connect(String clientAddr, String nickName) throws
+            RemoteException {
+        ClientInfo cinfo = new ClientInfo(nickName, clientAddr, null);
+        if (hashset.add(cinfo)) {
+            //look it up
+            ClientBoard client = null;
+            try {
+                client = (ClientBoard) Naming.lookup("//" + clientAddr + "/" +
+                        nickName);
+            } catch (Exception ex1) {
+                ui.msgs.append("exception in lookup\n");
+            }
+            if (client == null) {
+                ui.msgs.append("no fuck\n");
+                return "not";
+            }
+            cinfo.lookup = client;
+
+            //notify all others
+            String msg = ">>" + nickName + "@" + clientAddr +
+                         " has joined in...";
+            ui.msgs.append(msg+"\n");
+
+            Iterator itr = hashset.iterator();
+            while (itr.hasNext()) {
+                try {
+                    ClientInfo info = (ClientInfo) itr.next();
+                    String nick = "//" + info.clientAddress + "/" +
+                                  info.nickName;
+                    if (info.lookup != null)
+                        info.lookup.recieveMsg(msg);
+
+                } catch (Exception ex) {
+                    ui.msgs.append("Client exception: " + ex.getMessage()+"\n");
+                    ex.printStackTrace();
+                }
+
+            }
+            return "ok";
+        } else {
+            return "not";
+        }
+    }
+
+    /**
+     * disconnect from the server by removing clients info from the hashset
+     * and notifying all others
+     *
+     * @param nickName String
+     * @return Object
+     * @throws RemoteException
+     */
+    public Object disconnect(String nickName) throws RemoteException {
+        hashset.remove(new ClientInfo(nickName,null,null));
+        //notify all
+        String msg = ">>" + nickName + " has disconnected...";
+        ui.msgs.append(msg+"\n");
+
+        Iterator itr = hashset.iterator();
+        while (itr.hasNext()) {
+            try {
+                ClientInfo info = (ClientInfo) itr.next();
+                String nick = "//" + info.clientAddress + "/" + info.nickName;
+                if (info.lookup != null)
+                    info.lookup.recieveMsg(msg);
+
+            } catch (Exception ex) {
+                ui.msgs.append("Client exception: " + ex.getMessage()+"\n");
+                ex.printStackTrace();
+            }
+
+        }
+
+        return "ok";
+    }
+
+    /**
+     * getting a message from a client we cast it to all clients
+     *
+     * @param nickName String
+     * @param msg String
+     * @return Object
+     * @throws RemoteException
+     */
+    public Object recieveMsg(String nickName, String msg) throws
+            RemoteException {
+        //noitfy all
+        String castMsg = "[" + nickName + "]:" + msg;
+        ui.msgs.append(castMsg + "\n");
+        Iterator itr = hashset.iterator();
+        while (itr.hasNext()) {
+            try {
+                ClientInfo info = (ClientInfo) itr.next();
+                String nick = "//" + info.clientAddress + "/" + info.nickName;
+                if (info.lookup != null)
+                    info.lookup.recieveMsg(castMsg);
+
+            } catch (Exception ex) {
+                ui.msgs.append("Client exception: " + ex.getMessage()+"\n");
+                ex.printStackTrace();
+            }
+
+        }
+        return "ok";
+    }
+
+}

@@ -1,0 +1,24 @@
+2014-11-15 14:38:20 Debug: Notice (8): Undefined index: search.js in [C:\wamp\www\abbotabadSchool\openemis-school\app\Controller\Component\AccessComponent.php, line 78]
+Trace:
+AccessComponent::initialize() - C:\wamp\www\abbotabadSchool\openemis-school\app\Controller\Component\AccessComponent.php, line 78
+ObjectCollection::trigger() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Utility\ObjectCollection.php, line 132
+call_user_func - [internal], line ??
+CakeEventManager::dispatch() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Event\CakeEventManager.php, line 248
+Controller::startupProcess() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Controller\Controller.php, line 674
+ExceptionRenderer::_getController() - CORE\Cake\Error\ExceptionRenderer.php, line 157
+ExceptionRenderer::__construct() - CORE\Cake\Error\ExceptionRenderer.php, line 95
+ErrorHandler::handleException() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Error\ErrorHandler.php, line 121
+[main] - [internal], line ??
+
+2014-11-15 14:38:20 Debug: Notice (8): Undefined index: pagination.css in [C:\wamp\www\abbotabadSchool\openemis-school\app\Controller\Component\AccessComponent.php, line 78]
+Trace:
+AccessComponent::initialize() - C:\wamp\www\abbotabadSchool\openemis-school\app\Controller\Component\AccessComponent.php, line 78
+ObjectCollection::trigger() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Utility\ObjectCollection.php, line 132
+call_user_func - [internal], line ??
+CakeEventManager::dispatch() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Event\CakeEventManager.php, line 248
+Controller::startupProcess() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Controller\Controller.php, line 674
+ExceptionRenderer::_getController() - CORE\Cake\Error\ExceptionRenderer.php, line 157
+ExceptionRenderer::__construct() - CORE\Cake\Error\ExceptionRenderer.php, line 95
+ErrorHandler::handleException() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Error\ErrorHandler.php, line 121
+[main] - [internal], line ??
+

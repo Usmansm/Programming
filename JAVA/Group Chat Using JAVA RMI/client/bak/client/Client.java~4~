@@ -1,0 +1,51 @@
+package client;
+
+
+import java.rmi.*;
+import java.rmi.server.*;
+import client_board.*;
+
+public class Client extends UnicastRemoteObject
+        implements ClientBoard{
+    public static ClientUI ui=null;
+    String clientName="";
+
+    public Client() throws RemoteException {
+       super();
+    }
+
+    //pass a name
+    public void createClient(String name){
+        if (System.getSecurityManager() == null) {
+           System.setSecurityManager(new RMISecurityManager());
+       }
+       try {
+           ClientBoard server = new Client();
+           Naming.rebind(name, server);
+           System.out.println("Client bound");
+       } catch (Exception e) {
+           System.err.println("Client exception: " + e.getMessage());
+           e.printStackTrace();
+       }
+
+    }
+
+    //detach from naming service
+    public void unbind(){
+        Naming.unbind(clientName);
+    }
+/*
+    public Object connect(String nickName) throws RemoteException{
+    }
+
+    public Object disconnect(String nickName) throws RemoteException {
+    }
+*/
+    public Object recieveMsg(String msg) throws RemoteException {
+        //noitfy all
+        ui.msgs.append(msg+"\n");
+
+        return "ok";
+    }
+
+}

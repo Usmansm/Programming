@@ -1,0 +1,1 @@
+python hailataxii_feeds_saver.py --feed dataForLast_7daysOnly --directory results

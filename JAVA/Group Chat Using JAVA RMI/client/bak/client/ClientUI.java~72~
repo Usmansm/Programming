@@ -1,0 +1,258 @@
+package client;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+
+import java.rmi.*;
+import server_board.*;
+import javax.swing.JLabel;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowAdapter;
+import javax.swing.JScrollPane;
+
+/**
+ * <p>Title: </p>
+ *
+ * <p>Description: </p>
+ *
+ * <p>Copyright: Copyright (c) 2006</p>
+ *
+ * <p>Company: </p>
+ *
+ * @author not attributable
+ * @version 1.0
+ */
+public class ClientUI extends JFrame {
+    JPanel contentPane;
+    BorderLayout borderLayout1 = new BorderLayout();
+    JPanel top = new JPanel();
+    JButton connectBtn = new JButton();
+    JTextArea msgs = new JTextArea();
+    JPanel bottom = new JPanel();
+    JButton sendBtn = new JButton();
+    JTextArea msg = new JTextArea();
+    ServerBoard server=null;
+    JTextField nickNameField = new JTextField();
+    JButton disconnect = new JButton();
+    String nickName="nobody";
+    boolean connected=false;
+    JTextField hostname = new JTextField();
+    JLabel jLabel1 = new JLabel();
+    Client client=null;
+    String serverName =null;
+    JScrollPane scroll=new JScrollPane(msgs);
+    JScrollPane scroll2=new JScrollPane(msg);
+    public ClientUI() {
+        try {
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
+            jbInit();
+            serverName=java.net.InetAddress.getLocalHost().getHostName();
+
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     * Component initialization.
+     *
+     * @throws java.lang.Exception
+     */
+    private void jbInit() throws Exception {
+        contentPane = (JPanel) getContentPane();
+        contentPane.setLayout(borderLayout1);
+        setSize(new Dimension(500, 300));
+        setTitle("client window");
+        this.addWindowListener(new ClientUI_this_windowAdapter(this));
+        connectBtn.setText("connect");
+        connectBtn.addActionListener(new ClientUI_connectBtn_actionAdapter(this));
+        msgs.setText("");
+        sendBtn.setText("send");
+        sendBtn.addActionListener(new ClientUI_sendBtn_actionAdapter(this));
+        msg.setPreferredSize(new Dimension(300, 50));
+        msg.setText("");
+        nickNameField.setPreferredSize(new Dimension(100, 20));
+        nickNameField.setText("nickName");
+        disconnect.setToolTipText("");
+        disconnect.setText("disconnect");
+        disconnect.addActionListener(new ClientUI_disconnect_actionAdapter(this));
+        hostname.setPreferredSize(new Dimension(70, 20));
+        hostname.setText("mery");
+        contentPane.setMinimumSize(new Dimension(410, 88));
+        contentPane.setPreferredSize(new Dimension(500, 112));
+        jLabel1.setText("host name");
+        nickNameField.addActionListener(new
+                                        ClientUI_nickNameField_actionAdapter(this));
+        contentPane.add(top, java.awt.BorderLayout.NORTH);
+        top.add(jLabel1);
+        top.add(hostname);
+        top.add(nickNameField);
+        top.add(connectBtn);
+        top.add(disconnect);
+        contentPane.add(scroll, java.awt.BorderLayout.CENTER);
+        contentPane.add(bottom, java.awt.BorderLayout.SOUTH);
+        bottom.add(scroll2);
+        bottom.add(sendBtn);
+
+        Client.ui=this;
+    }
+
+    /**
+     * connect when disconnected or coonection lost by it self
+     * @param e ActionEvent
+     */
+    public void connectBtn_actionPerformed(ActionEvent e) {
+        if ((!connected) || (server == null)) {
+            if (System.getSecurityManager() == null) {
+                System.setSecurityManager(new RMISecurityManager());
+            }
+            try {
+                String name = "//" + hostname.getText() + "/Server";
+
+                server = (ServerBoard) Naming.lookup(name);
+                nickName = nickNameField.getText();
+                connected = true;
+                //now spawn the client in the naming service
+                client = new Client();
+                client.createClient(nickName);
+
+                if (server != null) {
+                    try {
+                        String answer = (String) server.connect(serverName,nickName);
+                        if (!answer.equals("ok")) {
+                            JOptionPane.showMessageDialog(this,
+                                    "nick name already exists try another one");
+                            connected = false;
+                            client.unbind();
+                            return;
+                        }
+
+
+                    } catch (RemoteException ex) {
+                    }
+                } else {
+                    connected = false;
+                    JOptionPane.showMessageDialog(this,
+                            "no connection to the server, try to connect again");
+                }
+            } catch (Exception ex) {
+             //   System.err.println("Server exception: " +
+             //                      ex.getMessage());
+             //   ex.printStackTrace();
+             JOptionPane.showMessageDialog(this,"can't connect to the server, try to connect again");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,
+                            "already connected, disconnect first to connect back");
+        }
+    }
+
+    public void sendBtn_actionPerformed(ActionEvent e) {
+        if(server!=null  && connected){
+            try {
+                server.recieveMsg(nickName, msg.getText());
+                msg.setText("");
+            } catch (RemoteException ex) {
+            }
+        }
+    }
+
+    public void nickNameField_actionPerformed(ActionEvent e) {
+
+    }
+
+    public void disconnect_actionPerformed(ActionEvent e) {
+        connected=false;
+        if(server!=null){
+            try {
+                server.disconnect(nickName);
+            } catch (RemoteException ex) {
+            }
+        }
+        client.unbind();
+    }
+
+    public void this_windowClosing(WindowEvent e) {
+        if(connected){
+            connected=false;
+            if(server!=null)
+                try {
+                    server.disconnect(nickName);
+                } catch (RemoteException ex) {
+                }
+        }
+    }
+}
+
+
+class ClientUI_this_windowAdapter extends WindowAdapter {
+    private ClientUI adaptee;
+    ClientUI_this_windowAdapter(ClientUI adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    public void windowClosing(WindowEvent e) {
+
+        adaptee.this_windowClosing(e);
+    }
+}
+
+
+class ClientUI_disconnect_actionAdapter implements ActionListener {
+    private ClientUI adaptee;
+    ClientUI_disconnect_actionAdapter(ClientUI adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        adaptee.disconnect_actionPerformed(e);
+    }
+}
+
+
+class ClientUI_nickNameField_actionAdapter implements ActionListener {
+    private ClientUI adaptee;
+    ClientUI_nickNameField_actionAdapter(ClientUI adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        adaptee.nickNameField_actionPerformed(e);
+    }
+}
+
+
+class ClientUI_sendBtn_actionAdapter implements ActionListener {
+    private ClientUI adaptee;
+    ClientUI_sendBtn_actionAdapter(ClientUI adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+
+        adaptee.sendBtn_actionPerformed(e);
+    }
+}
+
+
+class ClientUI_connectBtn_actionAdapter implements ActionListener {
+    private ClientUI adaptee;
+    ClientUI_connectBtn_actionAdapter(ClientUI adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        adaptee.connectBtn_actionPerformed(e);
+    }
+}

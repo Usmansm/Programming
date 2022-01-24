@@ -1,0 +1,46 @@
+CREATE TABLE Hotels
+( H_ID integer, location char(20), name char(30),total_rooms integer,city char(15),
+Constraint spk Primary key(H_ID) );
+
+
+CREATE TABLE Rooms
+(R_ID integer, category char(30),price integer, H_ID integer,
+Constraint fpk Primary key(R_ID),
+Constraint abc Foreign key(H_ID) references Hotels(H_ID));
+
+
+CREATE TABLE Customer
+(C_ID integer, cfname char(60), clname char(60), address char(500), email char(50),
+Constraint  cpk PRIMARY KEY(C_ID) );
+
+
+Insert into Customer (C_ID,cfname,clname,address,email) values
+(112,'Zumair','Ali','Ghazali Hostels Block2 Sector H-12 ISLAMABAD','zurix_92@yahoo.com' );
+drop table Customer
+drop table Reservation
+CREATE TABLE Reservation
+(R_ID integer,price integer,C_ID integer , reserv_date char(30),dept_date char(30),arrival_date char (50)  ,
+Constraint abc1 Foreign key(R_ID) references Rooms(R_ID),
+Constraint abc2 Foreign key(C_ID) references Customer(C_ID),
+ primary key(R_ID,C_ID));
+
+Insert into Reservation(R_ID,price,C_ID,reserv_date,dept_date,arrival_date) values
+(593 , 2000, 112 ,'26 JAN 2011','28 Jan 2011','27 Jan 2011');
+ CREATE TABLE H_Phone(
+H_ID  integer,number1  integer,number2  integer,
+Constraint bcd Foreign key(H_ID) references Hotels(H_ID));
+
+Insert into H_Phone(
+H_ID,number1,number2) values (019,4477715,9216450);
+CREATE TABLE C_Phone(
+C_ID  integer,mob  integer,landline  integer,
+Constraint bcd Foreign key(C_ID) references Customer(C_ID));
+Insert into C_Phone(
+C_ID,mob,landline) values (112,9141233,92163345);
+
+drop table C_Phone
+Insert into Hotels (H_ID,location,name,total_rooms,city) values
+(019 , 'Kalam','PTDC Kalam ',34,'KALAM');
+
+Insert into Rooms(R_ID,category,price,H_ID) values
+(593,'V.V.I.P',2500,  019 );

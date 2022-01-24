@@ -1,0 +1,23 @@
+ ***********************PROCESS ALLOCATION LOG FILE***************
+
+
+
+ Total Number Of Blocks 5
+
+
+Total Number Of Processes  6
+
+
+Total Size Of Blocks 395 KB
+
+Total Size Of Process 350 KB
+
+Total Space Used180 KB
+
+
+Total Space Free 215 KB
+
+
+Number of Blocks unused 1
+
+Thankyou

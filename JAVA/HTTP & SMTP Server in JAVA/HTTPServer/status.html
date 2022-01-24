@@ -1,0 +1,135 @@
+<!-- 
+    Document   : sendMail
+    Created on : Apr 1, 2008, 4:41:37 AM
+    Author     : Qaisar
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Email Status Checking Client</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <script language="javascript">
+		
+                 function ValidateInputs(){
+                    var from = trim(document.getElementById("from").value);
+                    var to = trim(document.getElementById("to").value);
+                    if(!ValidateEmail(from)){
+                        alert("From Field is not Invalid!");
+                        return false;
+                    }
+                    
+                    if(!ValidateEmail(to)){
+                        alert("To Field is not Invalid ");
+                        return false;
+                    }
+                    return true;
+                }
+                function trim(str){
+                    return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+                }
+                function ValidateEmail(str) {
+
+                    var at="@";
+                    var dot=".";
+                    var lat=str.indexOf(at);
+                    var lstr=str.length;
+                    var ldot=str.indexOf(dot);
+                    if (str.indexOf(at)==-1){
+                        return false;
+                    }
+
+                    if (str.indexOf(at)==-1 || str.indexOf(at)==0 || (str.indexOf(at)==lstr-1)){
+                        return false;
+                    }
+
+                    if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || (str.indexOf(dot)==lstr-1)){
+                        return false;
+                    }
+
+                    if (str.indexOf(at,(lat+1))!=-1){
+                        return false;
+                    }
+
+                    if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+                        return false;
+                    }
+                    
+                    var indexDot = str.indexOf(dot,(lat+2));
+                    
+                    if (indexDot==-1){
+                        return false;
+                    }
+                    else if(str.indexOf(dot,indexDot+1)!=-1){
+                        return false;
+                    }
+		
+                    if (str.indexOf(" ")!=-1){
+                        return false;
+                    }
+                    return true;					
+		}
+	</script>
+        
+  </head>
+  <body>
+      <center>
+          <h3>Email Status Checking Client</h3>
+      <table>
+      <form action="processStaus" method="get"> 
+      
+       <tr>
+  <td>
+      From:
+  </td>
+  
+  <td>
+      <input name="from" id="from" size="26">
+  </td>
+  </tr>
+ <tr>
+  <td>
+      To:
+  </td>
+  
+  <td>
+      <input name="to" id="to" size="26">
+  </td>
+  </tr> 
+  <tr>
+  <td>
+      Subject:
+  </td>
+  
+  <td>
+      <input name="subject" id="subject" size="26">
+  </td>
+  </tr>
+  
+  <tr>
+  <td>
+      Time:
+  </td>
+  
+  <td>
+      <input name="time" id="time" size="26">
+   
+  </td>
+  </tr>
+  <tr>
+      <td></td>
+  <td>YYYY/MM/DD/HH/MM</td>
+  </tr>
+    
+  <tr>
+      <td></td>
+  <td>
+      <input name="send" type="submit" value ="Send" onclick="return ValidateInputs();"> 
+  </td>
+  </tr>      
+    </form > 
+      </table>
+      </center>
+      <br><br>
+
+  </body>
+</html>

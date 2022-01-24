@@ -1,0 +1,8 @@
+[18-Feb-2015 05:48:45 America/Chicago] PHP Fatal error:  Can't use method return value in write context in /home4/iftekhar/public_html/fratelloneit.com/ecampus/application/views/admin/components/user_profile.php on line 44
+[18-Feb-2015 05:50:43 America/Chicago] PHP Fatal error:  Can't use method return value in write context in /home4/iftekhar/public_html/fratelloneit.com/ecampus/application/views/admin/components/user_profile.php on line 44
+[18-Feb-2015 05:52:16 America/Chicago] PHP Fatal error:  Can't use method return value in write context in /home4/iftekhar/public_html/fratelloneit.com/ecampus/application/views/admin/components/user_profile.php on line 44
+[18-Feb-2015 05:55:48 America/Chicago] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home4/iftekhar/public_html/fratelloneit.com/ecampus/application/views/admin/components/user_profile.php on line 48
+[19-Feb-2015 02:47:18 America/Chicago] PHP Fatal error:  Call to a member function check_by() on a non-object in /home4/iftekhar/public_html/fratelloneit.com/nayem/application/controllers/admin/session.php on line 104
+[19-Feb-2015 02:56:37 America/Chicago] PHP Fatal error:  Call to a member function row() on a non-object in /home4/iftekhar/public_html/fratelloneit.com/nayem/application/core/MY_Model.php on line 165
+[19-Feb-2015 02:57:27 America/Chicago] PHP Fatal error:  Call to a member function row() on a non-object in /home4/iftekhar/public_html/fratelloneit.com/nayem/application/core/MY_Model.php on line 165
+[19-Feb-2015 05:34:33 America/Chicago] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home4/iftekhar/public_html/fratelloneit.com/nayem/application/controllers/admin/hr.php on line 254

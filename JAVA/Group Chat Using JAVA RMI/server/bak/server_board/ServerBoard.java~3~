@@ -1,0 +1,8 @@
+package server_board;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface ServerBoard extends Remote{
+   Object connect(String nickName) throws RemoteException;
+}

@@ -1,0 +1,15 @@
+<?php
+$this->extend('/Layouts/tabs');
+
+$this->assign('contentHeader', $header);
+$this->assign('portletHeader', $header);
+$this->assign('tabHeader', $this->Label->get('general.general'));
+
+$this->start('tabActions');
+	echo $this->FormUtility->link('edit', array('action' => 'edit'));
+$this->end();
+
+$this->start('tabBody');
+	echo $this->element('layout/view');
+$this->end();
+?>

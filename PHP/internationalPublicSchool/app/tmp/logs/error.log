@@ -1,0 +1,54 @@
+2014-11-15 14:38:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /abbotabadSchool/internationalPublicSchool/js/search.js
+Stack Trace:
+#0 C:\wamp\www\abbotabadSchool\internationalPublicSchool\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-15 14:38:20 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /abbotabadSchool/internationalPublicSchool/css/pagination.css
+Stack Trace:
+#0 C:\wamp\www\abbotabadSchool\internationalPublicSchool\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-15 14:38:20 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check. Node references:
+Aro: Admin
+Aco: js in [C:\wamp\www\abbotabadSchool\internationalPublicSchool\lib\Cake\Model\Permission.php, line 93]
+Trace:
+Permission::check() - CORE\Cake\Model\Permission.php, line 93
+DbAcl::check() - CORE\Cake\Controller\Component\Acl\DbAcl.php, line 74
+AclComponent::check() - CORE\Cake\Controller\Component\AclComponent.php, line 110
+AccessComponent::check() - C:\wamp\www\abbotabadSchool\openemis-school\app\Controller\Component\AccessComponent.php, line 123
+AccessComponent::initialize() - C:\wamp\www\abbotabadSchool\openemis-school\app\Controller\Component\AccessComponent.php, line 91
+ObjectCollection::trigger() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Utility\ObjectCollection.php, line 132
+call_user_func - [internal], line ??
+CakeEventManager::dispatch() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Event\CakeEventManager.php, line 248
+Controller::startupProcess() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Controller\Controller.php, line 674
+ExceptionRenderer::_getController() - CORE\Cake\Error\ExceptionRenderer.php, line 157
+ExceptionRenderer::__construct() - CORE\Cake\Error\ExceptionRenderer.php, line 95
+ErrorHandler::handleException() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Error\ErrorHandler.php, line 121
+[main] - [internal], line ??
+
+2014-11-15 14:38:20 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check. Node references:
+Aro: Admin
+Aco: css in [C:\wamp\www\abbotabadSchool\internationalPublicSchool\lib\Cake\Model\Permission.php, line 93]
+Trace:
+Permission::check() - CORE\Cake\Model\Permission.php, line 93
+DbAcl::check() - CORE\Cake\Controller\Component\Acl\DbAcl.php, line 74
+AclComponent::check() - CORE\Cake\Controller\Component\AclComponent.php, line 110
+AccessComponent::check() - C:\wamp\www\abbotabadSchool\openemis-school\app\Controller\Component\AccessComponent.php, line 123
+AccessComponent::initialize() - C:\wamp\www\abbotabadSchool\openemis-school\app\Controller\Component\AccessComponent.php, line 91
+ObjectCollection::trigger() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Utility\ObjectCollection.php, line 132
+call_user_func - [internal], line ??
+CakeEventManager::dispatch() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Event\CakeEventManager.php, line 248
+Controller::startupProcess() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Controller\Controller.php, line 674
+ExceptionRenderer::_getController() - CORE\Cake\Error\ExceptionRenderer.php, line 157
+ExceptionRenderer::__construct() - CORE\Cake\Error\ExceptionRenderer.php, line 95
+ErrorHandler::handleException() - C:\wamp\www\abbotabadSchool\openemis-school\lib\Cake\Error\ErrorHandler.php, line 121
+[main] - [internal], line ??
+
