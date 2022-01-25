@@ -1,0 +1,101 @@
+body{
+font-family: Arial;
+}
+.fd {
+    float: left;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: calc(100% - 400px);
+	height: 100%;
+	overflow-x:auto;
+}
+
+#NewsStreamText{
+	vertical-align:middle;
+	border-bottom: 1px solid black;
+	margin-left: 5px; 
+}
+.NewsStreamLink{
+	font-size:13px;
+	font-weight:normal;
+}
+
+#message{
+	margin-top:7px;
+	padding-bottom:15px;
+}
+#NewsStream{
+	margin-right:20px;
+	margin-left:10px;
+	padding-top: 10px;
+	font-weight:bold;
+}
+.trashiconNews{
+    display: inline;
+    float: right;
+    margin-right: 20px;
+    margin-top: -7px;
+	cursor:pointer;
+}
+#date{
+	margin-bottom: 10px;
+    margin-top: 4px;
+	font-size:13px;
+	font-weight:bold;
+	margin-left: 5px;
+}
+#StarTribune{
+	margin-left:5px;
+	font-weight:normal;
+	font-size:14px;
+	display:inline;
+}
+
+#NewsSategoryStory {
+    font-size: 13px;
+    font-weight: normal;
+    margin-left: 13px;
+}
+
+#StarTribuneMib{
+	margin-left:114px;
+	text-decoration:underline;
+	font-weight:bold;
+	font-size:14px;
+	display:inline;
+	font-weight: normal;
+}
+
+.Newholder{
+	border-bottom:1px solid grey;
+}
+.messageStatus{
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+.Newsicon{
+	margin-top: -10px;
+	float:right;
+	padding-right:10px;
+	cursor:pointer;
+}
+.paragraph{
+    display: inline;
+    font-size: 15px;
+}
+
+#NewsHeadRight{
+	font-weight:bold;
+}
+#RightSideIcon {
+	margin-left:5px;
+    float: left;
+    margin-right: 7px;
+    margin-top: -2px;
+}
+
+.NewsLeft {
+    height: 100%;
+}
+

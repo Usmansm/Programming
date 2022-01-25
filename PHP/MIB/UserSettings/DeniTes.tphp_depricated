@@ -1,0 +1,296 @@
+<?php
+/*This file is used as background php for page UserSettings.php need to rename it properly later*/
+SESSION_START();
+require_once('../config/config.php');
+ $mysqli = new mysqli($config['host'], $config['user'], $config['pass'], $config['db']);
+  
+
+	
+/*function which is user to displaying emial information mklmlk*/
+function DispEmailInfo($UserId){
+global $config ;
+  $mysqli = new mysqli($config['host'], $config['user'], $config['pass'], $config['db']);
+    $query = "SELECT * FROM user_email WHERE userId = '".$UserId."' ORDER BY emailType"; 
+    $result = $mysqli->query($query);
+
+    $i = 0;
+    
+    $EmailHolder =  '<div class="EmialUserPart_infol" id="EmailHolder">';
+   
+    while ($row = $result->fetch_assoc()) {
+    
+         $i = $i + 1;
+      
+      $emailType = $row['emailType'];
+      
+      if ($emailType == '1' ){
+        $emailType = 'Primary Email';
+      }else{
+        $emailType = 'Email ' . $emailType;
+      }
+      
+      $EmailHolder = $EmailHolder . '<div class="part_infotext">
+            <div class="Upart_infotextb"><span class="UserInfoEmial">'.$emailType.':</span></span><span class="UserEmail"  id="Eholder'.$i.'"> '.$row['emailAddr'].'</span><span class="UEmailStatus">'.$row['EmailStatus'].'</span><span class="EmailCheckbox"> <input type="radio" /></span><a href="#" onclick="EditEmail('.$UserId.', '.$i.')" class="Email_edit_button" id="EditEmailB'.$i.'">Edit Email</a></div>
+        </div>';
+    }
+    
+    $EmailHolder = $EmailHolder . '<div class="part_infotext">
+<div class="Upart_infotextb"><span class="UserAddEmiail">Additional Emails <input type="text" id="inputEmail"></input><button id="AddEmialButton" onclick="emailButton('.$UserId.')">Add Email</button></div>
+</div>
+</div>
+
+<div id="Buttons" > 
+<div id="CancelAndSaveButton">
+<button class="CancelAndSaveButton" value="Cancel">Cancel</button>
+<button class="CancelAndSaveButton" value="Save">Save</button> 
+</div>
+</div>
+</div>'; 
+echo $EmailHolder;
+}
+
+/*code for editiong email*/
+if (isset($_GET['EditEmail'])){
+  $EAddr = $_GET['EditEmail'];
+  $Userid = $_GET['id'];
+  $Eordinal = $_GET['Eordinal'];
+  $query = "UPDATE user_email SET emailAddr = '".$EAddr."' WHERE userId = '".$Userid."' AND emailType ='".$Eordinal."'";
+  
+  $result = $mysqli->query($query);
+  
+   DispEmailInfo($Userid);
+  
+  
+ 
+}
+/* Code for adding email www*/
+    if (isset ($_GET['addEmail'])){
+        $Id = $_GET['id'];
+        $emialAdd = $_GET['addEmail'];
+        /*  plan
+        set that emial is unverified
+        insert e-mail into datablase 
+        call function DispEmailInfo
+        */
+        //$query = "SELECTuser_email FROM user_email WHERE userId = '". $Id ." ORDER BY emailType'"; 
+        
+        $result = mysqli_query($mysqli,'SELECT * FROM user_email WHERE userId = "'.$Id.'" ORDER BY emailType');
+        $row = $result->fetch_assoc();
+        $emailnum = mysqli_affected_rows($mysqli) + 1;
+        
+        mysqli_query($mysqli,'INSERT INTO user_email (userId,emailAddr,emailType) VALUES("'.$Id.'","'.$emialAdd.'","'.$emailnum.'")');
+        DispEmailInfo($Id);
+            
+    }
+
+	
+	/* Code for adding notifications www*/
+    if (isset ($_GET['NotificationId'])){
+        $Id = $_GET['UserId'];
+        $nid = $_GET['NotificationId'];
+        
+
+		$query="REPLACE INTO user_notify_detail SET userId =".$Id." , notify_detail= '".$nid." '";
+        
+		$result = mysqli_query($mysqli,$query) or die(mysql_error());
+		$_SESSION["notify"]=$nid;
+		//mysqli_query($mysqli,"INSERT INTO 'test' ('id') VALUES ('1')") or die(mysql_error());
+		//$result=$mysqli->query("INSERT INTO test (id) VALUES ('1')") or die(mysql_error());
+		
+		
+		var_dump($result);
+        
+		
+            
+    }
+	
+	
+	
+
+/* Code for showing phone and address when dropdown is seleted"'.$id.'"'*/
+if (isset ($_GET['PhoneorAdd'])){
+  $PorAdd = $_GET['PhoneorAdd']; // is it request for Phone or address
+  $id = $_GET['id'];// user ID 
+  $ordinal = "userPhone".$_GET['ordinal']; // is it Phone 1 or Phone 2 
+  
+  if ($PorAdd == 'Phone'){
+    
+    $result = $mysqli->query('SELECT * FROM user_detail_public WHERE userId = "'.$id.'"'); 
+    $row = $result->fetch_assoc(); 
+    echo $row[$ordinal];
+  }
+  
+  if ($PorAdd == 'Address'){
+    $result = $mysqli->query('SELECT * FROM user_detail_public WHERE userId = "'.$id.'"'); 
+    $row = $result->fetch_assoc(); 
+    if ($ordinal == '1' ){
+     // $ordinal = 'addressOne,cityOne,stateOne,zipOne,countryOne';
+      $address = $row['addressOne'];
+      $city = $row['cityOne'];
+      $state = $row['stateOne'];
+      $zip = $row['zipOne'];
+      $country = $row['countryOne'];
+    }
+    
+    if ($ordinal == '2' ){
+      //$ordinal = 'addressTwo,cityTwo,stateTwo,zipTwo,countryTwo';
+      $address = $row['addressTwo'];
+      $city = $row['cityTwo'];
+      $state = $row['stateTwo'];
+      $zip = $row['zipTwo'];
+      $country = $row['countryTwo'];
+      
+    }
+    
+echo <<<testing
+Address: <span class="ffname" id="UserAddress">$address</span><br />
+<span class="UTitle">City:</span><span class="ffname" id="UserCity">$city</span>
+<span class="UTitle">State:</span> <span class="ffname" id="UserState">$state</span><br />
+<span class="UTitle">Zip:</span> <span class="ffname" id="UserZip">$zip</span> 
+<span class="UTitle">Country:</span><span class="ffname" id="UserCountry">$country</span>
+
+testing;
+    
+  }
+  
+}
+
+/* Code for inserting USer Info in DB and dispaying it back*/   
+if (isset($_GET['PhNum'])){
+  $UserId = $_GET['UserId'];
+  $FirstName = $_GET['FN'];
+  $MddileName = $_GET['MN'];
+  $LastName = $_GET['LN'];
+  $DisplayName = $_GET['DN'];
+  $UserPhone = $_GET['UP'];
+  $UserCompany = $_GET['UT'];
+  $UserTitle =  $_GET['UCT'];
+  $UserAddress =  $_GET['UA'];
+  $UserCity =  $_GET['UC'];
+  $UserState =  $_GET['US'];
+  $UserZip =  $_GET['UZip'];
+  $PhoneOrdinal =  $_GET['PhNum'];
+  $AddOrdinal =  $_GET['AddNum'];
+  $udob=$_GET['udob'];
+  
+  
+  $query_private = "UPDATE user_detail_private SET firstName='". $FirstName ."', middleName='". $MddileName . "', lastName='". $LastName . "', displayName='". $DisplayName . "' WHERE userId='". $UserId ."'";
+  $result = $mysqli->query($query_private);
+  
+  $query_public1 = "UPDATE user_detail_public SET firstName='". $FirstName ."', middleName='". $MddileName . "', lastName='". $LastName . "', companyName='". $UserCompany . "', bornOn='". $udob . "' , companyTitle='". $UserTitle . "' WHERE userId='". $UserId ."'";
+  $result = $mysqli->query($query_public1);
+  
+
+    $query_public2 = "UPDATE user_detail_public SET userPhone".$PhoneOrdinal."='". $UserPhone ."' WHERE userId='". $UserId ."'";
+    $result = $mysqli->query($query_public2);
+    //echo $query_public1;
+    $Pselected1 = '';
+    $Pselected2 = '';
+    $Pselected3 = '';
+    
+        if ($PhoneOrdinal == 'Cell'){
+            $Pselected1 = 'selected';
+        } else if ($PhoneOrdinal == 'Home'){
+            $Pselected2 = 'selected';
+        }else if ($PhoneOrdinal == 'Office'){
+            $Pselected3 = 'selected';
+        }
+
+  
+  
+  if($AddOrdinal == '1'){
+    $query_public3 = "UPDATE user_detail_public SET addressOne='". $UserAddress ."', cityOne='". $UserCity ."', stateOne='". $UserState ."', zipOne='". $UserZip ."' WHERE userId='". $UserId ."'";  
+    $result = $mysqli->query($query_public3);
+    $Aselected1 = 'selected';
+    $Aselected2 = '';
+    
+  }
+  if ($AddOrdinal == '2'){
+    $query_public3 = "UPDATE user_detail_public SET addressTwo='". $UserAddress ."', cityTwo='". $UserCity ."', stateTwo='". $UserState ."', zipTwo='". $UserZip ."' WHERE userId='". $UserId ."'";
+    $result = $mysqli->query($query_public3);
+    $Aselected1 = '';
+    $Aselected2 = 'selected';
+  }
+  
+  $heredoc1 =  <<<UserResponse1
+<div class="part_title">
+  <span class="UserSettingsPartTitletext">User Information </span>
+<span class="aboutInfo">(<a href="www.aboutUserInfo.com"><u>About User Info</u></a>) </span>
+<span id="smallicon" ><a href='#' class='detail_edit_button'  onclick="EditUsettings($UserId)" id="UinfoEditbutton">Edit</a></span>
+<span id="minus" ><img id="UInfominus" onclick="hideUserInfo()" src="images/-.png"></img></span>
+</div>	
+
+<div class="UserPart_infol">
+<div class="part_infotext"> 
+<div class="Upart_infotextb">First Name: <span class="ffname" id="FirsteName">$FirstName</span></div>
+</div>	
+<div class="part_infotext"> 
+<div class="Upart_infotextb">Middle Name: <span class="ffname" id="MiddleName">$MddileName</span></div>
+</div>	
+<div class="part_infotext"> 
+<div class="Upart_infotextb">Last Name: <span class="ffname" id="lastname">$LastName</span></div>
+</div>	
+<div class="part_infotext"> 
+<div class="Upart_infotextb">Display Name: <span class="ffname" id="DisplayName">$DisplayName</span></div>
+</div>  
+
+<div class="part_infotext"> 
+<div class="Upart_infotextb"> Date of Birth: <span id='_birthday' class="ffname"></span>$udob</span></div>
+</div>	
+</div>
+
+<div class="UserPart_infor">
+<div class="part_infotext">
+<span class="Upart_infotextb">Phone: <span class="ffname" id="UserPhone">$UserPhone</span>
+<select class="detail_drop" id="PhoneSelect">
+    <option onclick="AddressAndPhoneDropDown('Phone', 'Cell', $UserId )"; $Pselected1  value="Cell">Cell</option>
+    <option onclick="AddressAndPhoneDropDown('Phone', 'Home', $UserId )"; $Pselected2 value="Home">Home</option>
+    <option onclick="AddressAndPhoneDropDown('Phone', 'Office', $UserId )"; $Pselected3 value="Office">Office</option>
+</select>
+</div>
+
+<div class="part_infotext"> 
+<div class="Upart_infotextb">Company: <span class="ffname" id="UserCompany">$UserCompany</span></div>
+</div>
+<div class="part_infotext">
+<div class="Upart_infotextb">Title: <span class="ffname" id="UserTitle">$UserTitle</span></div>
+</div>
+<div class="part_infotext">                         
+  <select class="detail_drop" id="AddressSelet">
+    <option onclick="AddressAndPhoneDropDown('Address', '1', $UserId )"; $Aselected1>Address 1</option>
+    <option onclick="AddressAndPhoneDropDown('Address', '2', $UserId )"; $Aselected2>Address 2</option>
+  </select>
+<div class="Upart_infotextb" id="AddressHolder">Address: <span class="ffname" id="UserAddress">$UserAddress</span><br />
+<span class="UTitle">City:</span><span class="ffname" id="UserCity">$UserCity</span>
+<span class="UTitle">State:</span> <span class="ffname" id="UserState">$UserState</span><br />
+<span class="UTitle">Zip:</span> <span class="ffname" id="UserZip">$UserZip</span> 
+<span class="UTitle">Country:</span><span class="ffname" id="UserCountry">ConDropDown fix needed</span>   
+</div>
+<select id="Country_drop">
+<OPTION> country1 </OPTION>
+<option>country2 </option>
+</select>
+</div>
+
+
+
+
+UserResponse1;
+  
+  echo $heredoc1;
+  
+  
+  
+}
+
+/*code for editing Terms*/
+
+if (isset($_GET['EditTerm'])){
+	$term = $_GET['EditTerm'];
+	$Tid = $_GET['Tid'];
+	if($term != "Add new term"){
+	$result = $mysqli->query('UPDATE user_monitor_terms SET termName="'.$term.'"  WHERE userId="'.$_SESSION["userId"].'" AND termId = "'.$Tid.'"');
+	}
+	echo $term;
+}
+?>

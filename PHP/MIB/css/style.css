@@ -1,0 +1,294 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background-image:url(/img/login/bg.png);
+	text-shadow: #555 0 0 2px;
+}
+.close { text-decoration: underline }
+
+#overlay {
+     visibility: hidden;
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     text-align:center;
+     z-index: 200;
+    background-image:url("images/modtrans.png");
+}
+
+#modal{
+	width:500px;
+	margin: 100px auto;
+	background-color: #FBFCFF;
+	border:1px solid #000;
+	border-radius:8px;
+	text-align:left;
+	opacity:1.0;
+	height:auto;
+	position:relative;
+	 
+}
+
+#ModalTitleParagraph{
+	background-color:#2D4662;
+	background-repeat:no-repeat;
+	background-size:100%, 100%;
+	height:35px;
+	color:white;
+	font-weight:bold;
+	font-size:25px;
+	text-shadow:none;
+	padding-top:5px;
+}
+
+#modalTitleText {
+    margin-left: 30%; 
+}
+#closeButton {
+	position: absolute;
+	right: -14px;
+	font-size: 16px;
+	color: #FFF;
+	text-decoration: none;
+	margin-top: -14px;
+	border: 3px solid;
+	border-radius: 20px;
+	padding-left: 4px;
+	background-color: #2D4662;
+	border-color: #2D4662;
+	padding-right: 4px;
+}
+#closeButton :hover  {
+    color:black; 
+    text-decoration:none; 
+    cursor:pointer;  
+    border: 3px solid black; 
+}	
+
+#saveButton{
+    float: right;
+    margin-right: 37px;
+    text-decoration: none;
+    font-size:18px;
+    color:white;
+    border: 3px solid white;
+    border-radius:5px;
+    padding-left: 4px;
+    padding-right: 4px;
+	visibility:hidden;
+}	
+
+#saveButton:hover  {
+    color:black; 
+    text-decoration:none; 
+    cursor:pointer;  
+    border: 3px solid black;
+}
+
+#modalText {
+	width:490px;
+	text-align:left;
+	padding:5px;
+	word-wrap:break-word;
+	min-height:215px;
+	max-height:400px;
+	overflow:auto;
+	overflow-style:auto;
+	text-shadow:none;
+}
+
+#header {
+	background-image:url(../img/logos/logoUpperRight.jpg);
+	background-repeat:no-repeat;
+	background-position:50px 12px;
+	background-color:white;
+	height:100px;
+}
+#loginForm {
+	
+	padding:5px;
+	background-image:url(../img/login/loginContainer.png);
+	background-size:150% 100%;
+	background-repeat:no-repeat;
+	max-height:110px;
+	margin-top: -65px;
+	border-bottom-color:#ACB3B5;
+	box-shadow: -5px 0px 5px #ACB3B5;
+}
+
+.LoginButton {
+	cursor:pointer;
+	-moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	box-shadow:inset 0px 0px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#756d75;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:30px;
+	line-height:30px;
+	width:73px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 0px 0px #ffffff;
+}
+.LoginButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}.LoginButton:active {
+	position:relative;
+	top:1px;
+}
+#loginButton {
+	background-image:url(../img/login/loginButton.png);
+	background-size:75px 31px;
+	background-repeat:no-repeat;
+	padding-top:5px;
+	padding-left:10px;
+	color:#F7F7F7;
+	font-weight:bold;
+}
+#sourceLogin {
+	background-image:url(../img/login/sourceLogin.png);
+	height:15px;
+	margin-top:-18px;
+	background-size: 100% 100%;
+}
+#sourceLoginText {
+	color:#F7F7F7;
+	font-weight:bold;
+	padding-right:7px;
+	margin-left:3px;
+}
+#content {
+	margin:auto;
+	background-image:url(../img/login/contentContainer.png);
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	height:650px;
+	margin-top:-20px;
+}
+#footer {
+	background-image:url(../img/login/contentContainer.png);
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	height:80px;
+	margin-top:-39px;
+}
+#contentInfo {
+	margin-top:30px;
+	margin-left:100px;
+}
+#contentLogo {
+	color:#F7F7F7;
+	font-size:32px;
+	font-weight:bold;
+}
+#contentText {
+	color:#F7F7F7;
+	font-size:20px;
+	font-weight:bold;
+	line-height:140%;
+}
+
+#contentText2{
+	padding-top:12px;
+	color:#F7F7F7;
+	font-size:22px;
+	text-align:center;
+}
+
+#contentText3{
+	padding-top:7px;
+	color:#F7F7F7;
+	font-size:18px;
+	text-align:center;
+}
+#contentRegistration {
+	color:#F7F7F7;
+	font-weight:bold;
+	margin-top:65px;
+	
+}
+#registrationTitle {
+	font-size:24px;
+	margin-left:15%;
+}
+#registrationForm {
+	
+margin-left: -80px;	
+}
+.regLabel {
+	text-align:center;
+}
+#registrationButton {
+	margin-top:20px;
+}
+#logos {
+	background-image:url(../img/login/bg.png);
+	background-size:100px 300px;
+	border-radius:5px;
+	height:200px;
+}
+
+#footertext{
+	margin-left:-5%;
+	margin-top:20px;
+	padding-top:10px;
+	text-align:center;
+	font-weight:bold;
+	font-size:18px;
+	text-shadow:none;
+	color:#F7F7F7;
+	
+}
+
+#footer2{
+	margin-left:40px;
+	width:100%;
+	margin-top:-20px;
+
+}
+#footerlogo{
+	float:left;
+}
+#footertext2{
+	text-shadow:none;
+	color: #0088CC;
+	text-align:center;
+	font-size:13px;
+	margin-left:25%;
+	position:absolute;
+}
+
+#footertext3{
+	margin-right:19%;
+	text-shadow:none;
+	text-align:center;
+	font-size:13px;
+	float:right;
+}

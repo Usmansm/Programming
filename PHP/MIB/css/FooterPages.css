@@ -1,0 +1,133 @@
+.screen_about{
+	margin:auto;
+	width: 990px;
+	margin-top: 25px;
+	border: 1px solid #a8a8a8;
+	background-color: #ededed;
+	padding: 10px;
+	padding-left: 0;
+	min-height: 750px;
+	-moz-box-shadow: 0 0 10px #888;
+	-webkit-box-shadow: 0 0 10px#888;
+	box-shadow: 0 0 10px #888;
+}
+
+.about_text_box {
+	width: 970px;
+	float: left;
+	margin-left: 10px;
+	background-color: #fff;
+	border: 1px solid #a8a8a8;
+	margin-top: 10px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	padding-bottom: 15px;
+}
+
+.about_heading {
+	height: 24px;
+	width: 950px;
+	float: left;
+	margin-left: 10px;
+	border-bottom: dashed 1px #585858;
+	margin-top: 10px;
+	font-size: 16px;
+	color: #3079a6;
+	font-weight: bold;
+}
+
+.about_text {
+	width: 950px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #333;
+	text-align: justify;
+}
+
+.our_philosphy_heading {
+	height: 24px;
+	width: 280px;
+	float: left;
+	margin-left: 10px;
+	border-bottom: dashed 1px #585858;
+	margin-top: 10px;
+	font-size: 16px;
+	color: #;
+	color: #3079a6;
+	font-weight: bold;
+}
+
+.our_philosphy {
+	width: 300px;
+	float: left;
+	margin-left: 10px;
+	background-color: #fff;
+	border: 1px solid #a8a8a8;
+	margin-top: 30px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	min-height: 200px;
+}
+.comment {
+	width: 280px;
+}
+
+.our_philosphy_text {
+	width: 950px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #333;
+	text-align: justify;
+	padding-bottom: 10px;
+}
+
+.our_philosphy_text {
+	font-size: 14px;
+	color: #333;
+	text-align: justify;
+}
+
+.privacyTitle{
+	margin-left:10px;
+	cursor:pointer;
+}
+
+.PrivacyContent{
+	display: block;
+	margin-left: 25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: justify;
+	background: #FFFFFF;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border: 1px solid #a8a8a8;
+}
+#AboutUsHold{
+    padding-top: 7px;
+    width: 100%;
+}
+.ReadMore{
+	cursor: pointer;
+	color: #3079A6;
+}
+.ReadLess{
+	cursor: pointer;
+	color: #3079A6;
+}
+#OurPhilosophy2		{display:none;}
+#TipoftheIceberg2	{display:none;}
+#Privacy2			{display:none;}
+
+#ReadLess1{display:none;}
+#ReadLess2{display:none;}
+#ReadLess3{display:none;}
+

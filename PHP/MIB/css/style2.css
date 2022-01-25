@@ -1,0 +1,127 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background: url("../images/bg.png");
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	z-index: 9000;
+}
+#headbar{
+	width: 100%;
+	height: 81px;
+	background: url("../images/top_bar_bg.png");
+	background-repeat: repeat-x;
+	z-index: 9001;
+}
+#actionbar{
+	width: 100%;
+	height: 33px;
+	background: url("../images/action_bar_noborders.png");
+	border-bottom: 1px solid white;
+	z-index: 9001;
+}
+#categorysearch{
+	height: 100%;
+	width: 12%;
+	float: right;
+	border-left: 1px solid white;
+	background: url("../images/search_icon.png");
+	background-position: center left;
+	background-repeat: no-repeat;
+}
+#categorysearchinput{
+	border-left: 1px solid white; border-top: none; border-right: none; border-bottom: none;
+	outline: none;
+	width: 89%;
+	height: 100%;
+	float: right;
+	background: url("../images/category_search_bg.png");
+}
+#categorysearchinput:focus{
+	border-left: 1px solid #1d6b95;
+}
+.actionbar_shadow{
+	width: 100%;
+	height: 8px;
+	background: url("../images/shadow1.png");
+	z-index: 9002;
+}
+#apphold{
+	width: 100%;
+	height: 83%;
+	z-index: 9001;
+}
+#categorylist{
+	float: right;
+	word-wrap: break-word;
+	height: 100%;
+	width: 12%;
+	z-index: 9001;
+	padding: 0px;
+	margin: 0px;
+	background: url("../img/friends/category_box_bg.png");
+	border-left: 1px solid white;
+}
+.categoryselection{
+	cursor: pointer;
+	width: 100%;
+	height: 27px;
+	border-bottom: 1px solid white;
+	background: url("../img/friends/sel1.png");
+}
+.categoryselection_active{
+	cursor: pointer;
+	width: 100%;
+	height: 27px;
+	border-bottom: 1px solid white;
+	background: url("../img/friends/sel2.png");
+}
+#bigcontent{
+	border-left: 1px solid white;
+	width: 55%;
+	height: 100%;
+	float: right;
+	background: url("../img/friends/big_content_bg.png");
+}
+.shadowright{
+	width: 3px;
+	height: 98%;
+	float: right;
+	background: url("../img/friends/shadow2.png");
+}
+#bigcontent_body{
+	width: 98%;
+	height: 98%;
+	float: left;
+}
+#friendslist{
+	border-left: 1px solid white;
+	width: 18%;
+	height: 100%;
+	float: right;
+	background: url("../img/friends/friends_list_bg.png");
+}
+#friendslist_body{
+	width: 98%;
+	height: 98%;
+	float: left;
+}
+#alphalist{
+	float: right;
+	width: 3%;
+	height: 100%;
+	border-left: 1px solid white;
+}
+#actionbox{
+	width: 11%;
+	border-left: 1px solid white;
+	height: 100%;
+	float: left;
+	background: url("../img/friends/action_bg.png");
+}
+#actionbox_body{
+	width: 98%;
+	height: 98%;
+	float: left;
+}

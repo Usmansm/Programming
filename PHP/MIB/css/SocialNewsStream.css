@@ -1,0 +1,198 @@
+#body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	background:#F1F1F1; 
+	margin:auto;
+	width:750px;
+	height:750px;
+	border:1px solid gray;
+	font-size: 14px;
+    line-height: 20px;
+}
+#mainmenu{
+	padding-top:15px;
+	border-top:1px solid white;
+	background:#BEBEBE;
+	height:24px;
+	margin-left:10px;
+	margin-top:5px;
+}
+
+#FBandLi{
+	vertical-align: middle;
+	line-height: normal;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 0;
+    margin-top: -10px;
+}
+
+a{
+	color:black;
+	text-decoration:none;
+}
+
+#FriendDetail{
+	margin-left:5px;
+}
+
+.mainmenuItem{
+	color:black;
+	background:#CDCDCD; 
+	font-weight:bold;
+	font-size:12px;
+	padding-bottom:6px;
+	padding-top:6px;
+	padding-right:9px;
+	padding-left:9px;
+	margin-right:-2px;
+	margin-left:-2px;
+	border-top:1px solid gray;
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+	display:inline;
+}
+
+#SocialNewsStream{
+	background:white;
+}
+
+#mainbody{
+	border-bottom:1px solid gray;
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+	margin-left:10px;
+	background:white;
+	width:730px;
+	height:695px;
+}
+
+#SocialStream{
+	border-right: 1px solid grey;
+	font-weight:bold;
+	margin-top:15px;
+	padding-top:15px;
+	height:35px;
+	width:360px;
+	float:left;
+	margin-bottom:10px;	
+}
+#NewsStream{
+	margin-right:20px;
+	margin-left:20px;
+	padding-top:30px;
+	font-weight:bold;
+	padding-bottom:25px;
+	border-bottom:1px solid grey;
+}
+
+#SocialStreamText{
+	margin-left:25px;
+	float:left;	
+}
+
+#FBandLIbuttons{
+	display:inline;
+	margin-left:25px;
+}
+
+#twoIcons{
+	margin-right:15px;
+	float:right;
+	display:inline;
+}
+#calnedar{
+	display:inline;
+	padding-right:5px;
+}
+
+#NewsStreamRadio{
+	margin-left:70px;
+	display:inline;
+}
+
+#NewsStreamText{
+	vertical-align:middle;
+	margin-left:15px;
+	display:inline;
+}
+
+#News{
+	display:inline;
+}
+#LeftSide{
+	float:left;
+	height:600px;
+	width:360px;
+	border-right:1px solid grey;
+	display:inline;
+
+}
+
+#RightSide{
+
+
+}
+
+#date{
+	margin-top:4px;
+	text-align:center;
+	font-size:13px;
+	font-weight:bold;
+}
+
+#LeftSideIcon{
+	float:left;
+	margin-top:7px;
+	margin-left:13px;
+	margin-right:13px;
+}
+
+#RightSideIcon{
+	float:left;
+	margin-top:-2px;
+	margin-left:7px;
+	margin-right:7px;
+}
+
+#message{
+	margin-right:10px;
+	margin-top:7px;
+	padding-bottom:10px;
+}
+
+p{
+	display:inline;
+	font-size:12px;
+}
+
+#hrLeft{
+	margin-top:8px;
+	margin-bottom:15px;
+	border:dashed #111111; 
+	border-width:1px 0 0; 
+	height:0;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+#hrRight{
+	margin-top:5px;
+	margin-bottom:5px;
+	border: 0;
+	color: black;
+	background-color: black;
+	height: 1px;
+}
+
+#StarTribune{
+	margin-left:45px;
+	text-decoration:underline;
+	font-weight:bold;
+	font-size:14px;
+	display:inline;
+}
+#trashicon{
+	display:inline;
+	margin-right:20px;
+	float:right;
+}

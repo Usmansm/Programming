@@ -1,0 +1,585 @@
+@charset "utf-8";
+/* CSS Document */
+
+.close { text-decoration: underline }
+
+#overlay {
+     visibility: hidden;
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     text-align:center;
+     z-index: 200;
+    background-image:url("images/modtrans.png");
+}
+
+#modal{
+     width:500px;
+     margin: 100px auto;
+     background-color: #FBFCFF;
+     border:1px solid #000;
+	 border-radius:8px;
+     padding:0px;
+     text-align:left;
+	 opacity:1.0;
+	 height:auto;
+	 position:relative;
+	 
+}
+
+#ModalTitleParagraph{
+	background-color:#2D4662;
+	background-repeat:no-repeat;
+	background-size:100%, 100%;
+	height:35px;
+	margin-top:0px;
+	color:white;
+	font-weight:bold;
+	font-size:25px;
+}
+
+#modalTitleText {
+    margin-left: 30%; 
+}
+
+#closeButton {
+	position: absolute;
+	right: -14px;
+	font-size: 16px;
+	color: #FFF;
+	text-decoration: none;
+	margin-top: -14px;
+	border: 3px solid;
+	border-radius: 20px;
+	padding-left: 4px;
+	background-color: #2D4662;
+	border-color: #2D4662;
+	padding-right: 4px;
+}
+#saveButton{
+	float: right;
+	margin-right: 15px;
+	display: none;
+	text-decoration: none;
+	font-size: 16px;
+	color: white;
+	margin-top: 5px;
+	border: 2px solid white;
+	border-radius: 12px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#closeButton:hover  {
+    color:black; 
+    text-decoration:none; 
+    cursor:pointer;
+    border: 3px solid black;
+}
+
+#saveButton:hover  {
+    color:black; 
+    text-decoration:none; 
+    cursor:pointer;  
+    border: 3px solid black;
+}
+
+#modalText {
+	width:490px;
+	text-align:left;
+	padding:5px;
+	word-wrap:break-word;
+	min-height:215px;
+	max-height:400px;
+	overflow:auto;
+	overflow-style:auto;
+}
+
+.modalCat {
+	width:440px;
+	padding:5px;
+	border-radius:4px;
+}
+.modalCat:hover {
+	background-color:#a0c5eb;
+}
+
+.modalCatTitle {
+	font-size:14px;
+	font-weight:bold;
+}
+
+.modalCatFriends {
+	font-size:14px;
+	font-style:italic;
+}
+
+.importSourceModalIcon {
+	width:40px;
+	height:40px;
+	float:left;
+
+}
+
+.importSourceModalTitle {
+	background-color:#D2D2D2;
+	border:solid;
+	border-width:1px;
+	border-radius:5px;
+	width:180px;
+    height:45px;
+	float:left;
+	margin-left:5px;
+	text-align:center;
+}
+
+.importSourceModalIconRight {
+	width:40px;
+	height:40px;
+	float:left;
+	margin-left:20px;
+
+}
+
+.importSourceModalTitleRight {
+	background-color:#D2D2D2;
+	border:solid;
+	border-width:1px;
+	border-radius:5px;
+	width:180px;
+    height:45px;
+	float:left;
+	margin-left:5px;
+	text-align:center;
+}
+
+#CSVMoreInfo{
+    cursor: pointer;
+    float: right;
+    font-size: 12px;
+    margin-right: 88px;
+    margin-top: 4px;
+}
+
+#mainbody{
+    background:white;
+    
+}
+#contentContainer{
+	border:1px solid gray;
+	width:850px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    min-height: 600px;
+}
+.UserSettingsPartTitletext {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #184583;
+    border-color: black black -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    color: white;
+    float: left;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-right: 20px;
+    padding: 4px;
+    width: 210px;
+}
+#User{
+	margin-top:20px;
+}
+
+#minus{	
+	display:inline;
+	float:right;
+	margin-right:50px;
+}
+#SocKeyUserSettings{
+	margin-top: 80px;
+	display:block;
+}
+.aboutInfo{
+	margin-top:5px;
+	display:inline;
+	font-style:italic;
+	font-size:12px;	
+}
+
+#smallicon{
+	/*font-size:11px;*/
+	margin-left: 355px;
+    display:inline;
+}
+
+#smallicon2{
+    font-size:11px;
+    margin-left: 130px;
+    display:inline;
+}
+#smallicon3{
+    font-size:11px;
+    margin-left: 300px;
+    display:inline;
+}
+
+.infoTabRight{
+	float:left;
+	margin-left:10px;
+	margin-top:10px;
+	padding-left:15px;
+	padding-bottom:6px;
+	padding-top:6px;
+	margin-left:10px;
+	width:300px;
+	border:1px dotted grey;
+	border-radius:10px;
+}
+
+#select2{
+	width:120px;
+	font-size:12px;
+	height:25px;
+	padding-bottom:1px;
+	padding-top:2px;
+	margin-bottom:0px;
+    margin-right:35px;
+}
+
+#calendarImage{
+	margin-left:30%;
+	display:inline;
+}
+
+.detail_drop {
+    float: right;
+    margin-right: 5px;
+}
+
+#Country_drop {
+    visibility:hidden;
+    margin-left: 15px;
+}
+
+.EmialUserPart_infol {
+    float: left;
+    margin-bottom: 40px;
+    margin-left: 2%;
+    width: 95%;
+}
+
+.UserInfoEmial{
+    display:inline-block;
+    width:110px;
+    margin-right:15px;
+
+}
+
+.UserAddEmiail{
+}
+
+#UserEmailinfo{
+    margin-top:20px;
+}
+
+.UserEmail{
+    color:black;
+    display: inline-block;
+    width: 2px;
+}
+
+#UserPasswordDisplay{
+	display: inline-block;
+	color:black;
+}
+.passwordInputInformation{
+	font-size:11px;
+}
+.UEmailStatus{
+    color:black;
+    display:inline-block;
+    width:110px;
+    text-align:center;
+    margin-right: 30px;
+    margin-left: 325px;
+}
+
+.EmialLineField1{
+	font-style:italic;
+	text-decoration:underline;
+	margin-left:px;
+	font-size:12px;
+	display:inline;
+  margin-left: 170px;
+}
+.EmialLineField2{
+	font-style:italic;
+	text-decoration:underline;
+	margin-left:15px;
+	font-size:12px;
+	display:inline;
+}
+
+.UserPart_infol{
+    float: left;
+    margin-bottom: 40px;
+    margin-left: 15px;
+    width: 42%;
+}
+
+.UAinfopart_infotext{
+    border-bottom-color: gray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 4px;
+    width: 95%;
+    margin-left:2%;
+	padding-bottom:5px;
+}
+
+.UAinfopart_infotext2{
+    border-bottom-color: gray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 25px;
+    width: 95%;
+    margin-left:2%;
+}
+.UserPart_infor{
+    float: right;
+    margin-bottom: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 45%;
+    padding-top: 4px;
+}
+
+#inputEmail{
+   font-size: 12px;
+    margin-left: 20px;
+	margin-right: 115px;
+    width: 200px;   
+}
+
+#AddEmailButton{
+	display:inline;
+	font-size:13px;
+	margin-left:40px;
+}
+
+#CancelAndSaveButton{
+	float:right;
+	margin-right:20px;
+    margin-top:-15px;
+    visibility:hidden;
+}
+
+.Upart_infotextb{
+    margin-bottom: 3px;
+    color: #305070;
+}
+
+
+
+.ffname{ 
+    color:black;
+}
+#CancelAndSaveButton2{
+	float:right;
+	margin-top:40px;
+	margin-right:20px;
+
+}
+#UserAccountInfo {
+    display: inline-block;
+    width: 100%;
+}
+
+.UAccountInfoTitle{
+    margin-top:-7px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    float: left;
+    margin-bottom:4px;
+    width: 100%;
+}
+
+.NotificationSettingsTitle{
+    margin-top:25px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    float: left;
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+#mainbodySocialStreamUser{
+	background:white;
+	height:100%;
+}
+
+#SocKeyUserTitleImage{
+	background: #184583;
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+#SocKeyWordTitle{
+	width: 100%;
+}
+.UseraboutInfo{
+    font-size: 12px;
+    font-style: italic;
+}
+
+.ResetPassword{
+    font-size: 13px;
+	margin-right: 66px;
+    width: 135px;
+	float: right;
+}
+
+.ResetPassword2{
+    font-size: 13px;
+    margin-left: 157px;
+    width: 135px;
+}
+#AccountType{
+	width: 90px;
+	display: inline-block;
+}
+.USettingsTitle{
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    float: left;
+    margin-bottom: 15px;
+    width: 100%;
+    
+}
+
+.accountConnections {
+    display: block;
+    font-size: 14px;
+    margin-left: 20px;
+    margin-right: 25px;
+    margin-top: 20px;
+}
+
+.accountConnectionsDecrpition{
+	font-size:12px;
+	font-style:italic;
+}
+
+.EditConnectionsInfo{
+    font-size: 12px;
+    font-style: italic;
+    width: 330px;
+}
+
+#NotificationSettings{
+	height:170px;
+}
+#NotificationBody{
+    display: inline-block;
+    margin-top: 20px;
+    margin-left:2%;
+    width: 95%;
+}
+
+#select3{
+	margin-left:40px;
+	width:120px;
+	font-size:12px;
+	height:25px;
+	padding-bottom:1px;
+	padding-top:2px;
+	margin-bottom:0px;
+}
+
+#CancelAndSaveButton3{
+	float:right;
+	margin-top:25px;
+	margin-right:20px;
+    margin-bottom:25px;
+}
+#footerFrendsPage{
+    padding-bottom:10px;
+    margin:auto;
+    width: 400px;
+	padding-bottom: 15px;
+}
+
+#footerImage{
+	width:53px;
+	height:53px;
+	float:left;
+	margin-top: 3px;
+}
+#footerinfo{
+	text-align:center;
+	display:inlinle-block;
+}
+
+#myicebergLink{
+	font-size:16px;
+	font-weight:bold;
+}
+
+#AboutUs{
+	padding:5px;
+	font-size:12px;
+	display:inline;
+}
+
+#RightsReserved{
+	font-size:12px;
+	float:right;
+	margin-right: 60px;
+	margin-top: 7px;
+}
+#InsuranceTitle{
+	color: #2D4662;
+	float:left;
+	margin-bottom:10px;
+	width:100%;
+	font-weight:bold;
+	font-size: 15px;
+	cursor:pointer;
+}
+#InsuranceContent{
+	color: #2D4662;
+	font-weight:bold;
+	font-size: 15px;
+	float:left;
+	margin-bottom:10px;
+	width:100%;
+}
+#FinanceContent{
+	color: #2D4662;
+	font-weight:bold;
+	font-size: 15px;
+	float:left;
+	margin-bottom:10px;
+	width:100%;
+	display:none;
+}
+
+#InsuranceTable{
+	color: #2D4662;
+	font-weight:bold;
+	font-size: 15px;
+	width: 100%;
+	border: 5px solid #2D4662;
+}

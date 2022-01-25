@@ -1,0 +1,156 @@
+#body{
+    background:#F1F1F1; 
+	margin:auto;
+	width:750px;
+	height:640px;
+	border:1px solid gray;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+    line-height: 20px;
+}
+#mainmenu{
+	padding-top:15px;
+	border-top:1px solid white;
+	background:#BEBEBE;
+	height:24px;
+	margin-left:10px;
+	margin-top:5px;
+}
+
+#FriendDetail{
+	margin-left:5px;
+}
+
+a{
+	color:black;
+	text-decoration:none;
+}
+.mainmenuItem{
+	line-height: 20px;
+	background:#CDCDCD; 
+	font-weight:bold;
+	font-size:12px;
+	padding-bottom:6px;
+	padding-top:6px;
+	padding-right:9px;
+	padding-left:9px;
+	margin-right:-2px;
+	margin-left:-2px;
+	border-top:1px solid gray;
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+	display:inline;
+}
+#SelectedItem{
+	background:white;
+}
+#mainbody{
+	font-size: 14px;
+    line-height: 20px;
+	border-bottom:1px solid gray;
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+	margin-left:10px;
+	background:white;
+	width:730px;
+	height:580px;
+}
+#title{
+	padding-top:5px;
+}
+
+#titleImage{
+	margin-top:15px;
+	margin-left:20px;
+	margin-right:15px;
+	background:url(../img/login/bgForSocialKeyword.png);
+}
+
+#titletext{
+	display:inline-block;
+	padding-bottom:5px;
+	margin-top:15px;
+	margin-left:10px;
+	font-size:18px;
+	color:#F7F7F7;
+}
+
+#selectAll{
+	font-size:13px;
+	margin-top:15px;
+	margin-right:20px;
+	float:right;
+}
+
+#allOptions{
+	margin-top:21px;
+}
+
+#LeftOptions{
+	
+	margin-left:20px;
+	float:left;
+	height:450px;
+	border-right:1px solid gray;
+	width:350px;
+}
+
+#RightOptions{
+	float:right;
+	height:450px;
+	width:350px;
+}
+
+#option{
+	padding-top: 7px;
+	margin-top:-8px;
+	margin-left:10px;
+	float:left;
+	height:50px;
+	width:340px;
+}
+
+input {
+    width: 13px;
+    height: 13px;
+    vertical-align: bottom;
+    position: relative;
+    top: -4px;
+}
+
+label{
+	display: block;
+    margin-bottom: 5px;
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	line-height: 20px;
+}
+#checkbox{
+	display:inline;
+}
+.EditTermImage{
+	float:right;
+	margin-right:20px;
+	background-repeat:no;
+	height:30px;
+	width:80px;
+	background:url(../img/login/bgForSocialKeyword.png);
+	border-radius:5px;
+}
+
+.EditTerm{
+	font-weight:bold;
+	color:#F7F7F7;
+	padding-left:7px;
+	padding-top:5px;
+}
+
+hr{
+	margin-top:38px;
+	border:dashed #111111; 
+	border-width:1px 0 0; 
+	height:0;
+	margin-left:10px;
+	margin-right:20px;
+}
