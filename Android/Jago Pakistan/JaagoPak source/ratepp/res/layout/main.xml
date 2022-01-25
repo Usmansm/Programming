@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android" xmlns:android1="http://schemas.android.com/apk/res/android">
+<ImageButton
+	android:id="@+id/bg1"
+	android:layout_width="318dp"
+	android:layout_height="431dp"
+	android:src="@drawable/parliment"
+	android:layout_x="2dp"
+	android:layout_y="3dp" />
+<Button
+    android:id="@+id/activity1"
+    android:layout_width="110dp"
+    android:layout_height="37dp"
+    android:layout_x="104dp"
+    android:layout_y="50dp"
+    android:gravity="center"
+    android:text="weVote"
+    android:textColor="#ff0000ff"
+    android:textStyle="bold" />
+
+
+
+
+
+
+
+
+<Button
+    android:id="@+id/activity2"
+    android:layout_width="110dp"
+    android:layout_height="37dp"
+    android:layout_x="102dp"
+    android:layout_y="93dp"
+    android:gravity="center"
+    android:text="weComplain"
+    android:textColor="#ff006600"
+    android:textStyle="bold" />
+
+
+
+
+
+
+
+<Button
+    android:id="@+id/activity3"
+    android:layout_width="110dp"
+    android:layout_height="37dp"
+    android:layout_x="103dp"
+    android:layout_y="134dp"
+    android:gravity="center"
+    android:text="weGive"
+    android:textColor="#ffcc0033"
+    android:textStyle="bold" />
+
+<TextView
+    android1:id="@+id/textView1"
+    android1:layout_width="124dp"
+    android1:layout_height="wrap_content"
+    android1:layout_x="14dp"
+    android1:layout_y="8dp"
+    android1:text="Replacing I by WE"
+    android1:textAppearance="?android:attr/textAppearanceSmall"
+    android1:textColor="@color/black" />
+
+</AbsoluteLayout>

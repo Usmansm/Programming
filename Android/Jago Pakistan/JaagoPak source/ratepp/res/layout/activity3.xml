@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<ImageView
+	android:id="@+id/bgroud3"
+	android:layout_width="319dp"
+	android:layout_height="429dp"
+	android:src="@drawable/bluebg"
+	android:layout_x="1dp"
+	android:layout_y="2dp" />
+
+<TableLayout
+    android:id="@+id/widget38"
+    android:layout_width="318dp"
+    android:layout_height="324dp"
+    android:layout_x="1dp"
+    android:layout_y="92dp"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="264dp"
+        android:layout_weight="6"
+        android:autoText="true"
+        android:ems="10"
+        android:gravity="left"
+        android:textColor="#ff000000"
+        android:textSize="18sp" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:background="#ff6666ff"
+        android:text="POST"
+        android:textColor="#ffffffff"
+        android:textSize="44sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+</TableLayout>
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="1dp"
+    android:layout_y="1dp"
+    android:text="Please write any thing you want to donate like eatables,dresses,stationery items, even if you have a single pen.The concerend person will collect it from you.Do mention your Contact info.The thing that is useless for you might be helpful for others"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:textColor="@color/green" />
+
+</AbsoluteLayout>

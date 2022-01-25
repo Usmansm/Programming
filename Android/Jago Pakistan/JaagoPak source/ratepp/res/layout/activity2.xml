@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/widget32"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<ImageView
+	android:id="@+id/bgroud3"
+	android:layout_width="320dp"
+	android:layout_height="432dp"
+	android:src="@drawable/free_highres_texture_15"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true" />
+<TableLayout
+	android:id="@+id/widget34"
+	android:layout_width="319dp"
+	android:layout_height="422dp"
+	android:orientation="vertical"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true">
+
+<EditText
+    android:id="@+id/text1"
+    android:layout_width="wrap_content"
+    android:layout_height="352dp"
+    android:layout_gravity="top"
+    android:autoText="true"
+    android:gravity="left"
+    android:textColor="#ff000000"
+    android:textSize="18sp"
+    android:typeface="sans" />
+
+<Button
+    android:id="@+id/p1"
+    android:layout_width="wrap_content"
+    android:layout_height="62dp"
+    android:background="#ff6666ff"
+    android:gravity="center"
+    android:text="POST"
+    android:textColor="#ffffffff"
+    android:textSize="44sp"
+    android:textStyle="bold"
+    android:typeface="serif" />
+
+</TableLayout>
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@+id/widget34"
+    android:text="Please write down your complains regarding any Authority from an MNA to President and they will be displayed at the Portal"
+    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>

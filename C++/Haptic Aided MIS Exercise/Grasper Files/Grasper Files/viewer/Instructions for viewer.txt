@@ -1,0 +1,15 @@
+Replace the files SofaViewer.h and SofaViewer.cpp in 
+
+SOFAFolder/applications/sofa/gui/qt/viewer/  (Make a backup of original files somewhere)
+
+and QtViewer.h and QtViewer.cpp in
+
+SOFAFolder/applications/sofa/gui/qt/viewer/qt/ (Make a backup of original files somewhere)
+
+Open cpp solution and compile the code.
+
+(Have a close look at the build process. If output window shows that the solution is up-to-date it 
+means that the new code has not compiled. In that case, edit the new files by adding a space somewhere
+or writing a comment etc.)
+
+

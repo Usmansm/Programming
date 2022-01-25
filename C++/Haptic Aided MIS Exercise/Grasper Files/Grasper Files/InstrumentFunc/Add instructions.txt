@@ -1,0 +1,10 @@
+Copy all these files in: 
+
+SOFAFolder/applications/sofa/gui
+
+
+Add the names of these header and source files in "libgui.pro" located inside the same folder.
+
+Run Project VC9 batch file in the main folder to apply modifications to the VC project.
+
+Build (not Rebuild!!!) new solution. 
